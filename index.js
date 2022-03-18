@@ -1,3 +1,4 @@
+// List functions
 const cons = (head, tail) =>
     bool => bool ? head : tail
 
@@ -27,6 +28,12 @@ const listToString = list => {
 const myList = list([1, 2, 3, 4, 5])
 console.log(listToString(myList))
 
+// Utils
+const sum = (a, b) => a + b
+
+const multiply = (a, b) => a * b
+
+
 // Reduce functions
 
 // Reduce right
@@ -35,10 +42,6 @@ const sumDaFunc = (list) => (tail(list) == null ? 0 : head(list) + sumDaFunc(tai
 const multiplyDaFunc = (list) => (tail(list) == null ? head(list) : head(list) * (multiplyDaFunc(tail(list))))
 
 const exponentialise = (list) => tail(list) == null ? head(list) : head(list) ** (exponentialise(tail(list)))
-
-const sum = (a, b) => a + b
-
-const multiply = (a, b) => a * b
 
 const reduceRight = (initial, list, func) => list == null ? initial : reduceRight(func(initial, head(list)), tail(list), func)
 
