@@ -1,49 +1,58 @@
 --stack --resolver lts script
 
--- Basic functions
-f x = x + 5
-f 2
+
+-- BASIC FUNCTIONS
+
+basicF x = x + 5
+-- basicF 2
 -- 7
 
 
-g x = x + 2
-g 2
+basicG x = x + 2
+-- basicG 2
 -- 4
 
-h x = (g . f) x
-h = g . f
-h 2
--- g (f(2)) = g(7) = 9
+basicH x = (basicG . basicF) x
+basicHCurried = basicG . basicF
+-- basicH 2
+-- basicG (basicF(2)) = basicG(7) = 9
 
 
--- Currying a function
-f = take 5
-f [1..10]
+
+-- CURRYING A FUNCTION
+
+curryF = take 5
+-- curryF [1..10]
 -- [1,2,3,4,5]
 
-g = head . tail
-g [1..10]
+curryG = head . tail
+-- curryG [1..10]
 -- 2
 
 
--- Destructuring a list
+
+-- DESTRUCTURING A LIST
+
 x:xs = [1,2,3,4,5]
 -- x = 1; xs = [2,3,4,5]
 
 
--- Head & Tail
+
+-- HEAD & TAIL
+
 header (x:xs) = x
-header [1..5]
+-- header [1..5]
 -- 1
 
 tailer (x:xs) = xs
-tailer [1..5]
+-- tailer [1..5]
 -- [2,3,4,5]
 
 
--- Take
 
-take 5 [1..10]
+-- TAKE
+
+-- take 5 [1..10]
 -- [1,2,3,4,5]
 
 --take :: Int -> [a] -> [a]
@@ -56,7 +65,7 @@ taker nr (x:xs)
     | nr == 1 = [x]
     | otherwise = x:(taker (nr - 1) xs)
 
-taker 5 [1..10]
+-- taker 5 [1..10]
 -- [1,2,3,4,5]
 
 -- In JavaScript:
@@ -66,6 +75,12 @@ taker 5 [1..10]
 --		cons( head(list), taker( (nr - 1), tail(list) )
 
 
-main = do {
-    print $ taker 5 [1..10]
-}
+
+-- MAIN (EXAMPLE)
+
+-- main = do {
+--    print $ taker 5 [1..10]
+--}
+
+
+
