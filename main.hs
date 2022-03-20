@@ -84,3 +84,25 @@ taker nr (x:xs)
 
 
 
+-- TYPE SYNONYMS
+-- type String = [Char]
+type Pair = Bool -> Int
+
+-- *untested*
+-- instance Show Pair where
+--	show pair = "(" ++ (pair true) ++ ", " ++ (pair false) ++ ")"
+
+
+
+-- CONS
+
+-- pair = conser 1 2
+conser :: Int -> Int -> Pair
+conser val1 val2 = (\bool -> if bool then val1 else val2 )
+-- header pair -> 1
+-- (conser 1 2) True
+-- 1
+
+-- tailer pair -> 2
+-- (conser 1 2) False
+-- 2
