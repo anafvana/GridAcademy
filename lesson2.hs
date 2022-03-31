@@ -54,12 +54,14 @@ reductionr (x:xs) func = func x (reductionr xs func)
 -- reductionr ["waka", "taka", "kage"] (++)
 -- "wakatakakage"
 
+-- THIS IS WRONG: see lesson3 for correct implementation
 -- Reduce left (foldl1)
 reductionl :: [a] -> (a -> a -> a) -> a
 reductionl [x] func = x
 reductionl (x:xs) func = func (reductionl xs func) x
 -- reductionl ["waka", "taka", "kage"] (++)
 -- "kagetakawaka"
+-- THIS IS WRONG: see lesson3 for correct implementation
 
 -- Summation as reductionr
 summation2 :: [Int] -> Int
